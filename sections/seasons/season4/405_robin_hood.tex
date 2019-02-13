@@ -1,0 +1,281 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{405: Robin Hood}\label{405}
+
+In this episode, Charlie and Amita use Listing's Law to predict the path that a criminal takes through a vault. \\
+
+\temph{Listing's Law}
+
+Listing's law states that all eye rotations have an axis of rotations which is contained within the same plane, called Listing's Plane. \\
+
+One interesting consequence of Listing's Law is that whenever a person is looking in a particular direction, the eye is always oriented in the same direction. No matter what path the eye takes to get to a given direction of sight, the image seen will always be the same -- there will be no rotation. \\
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=3in]{eyedrawing.png} 
+\end{figure}
+
+Another formulation of his law states that the eye, when moving from looking straight ahead to another direction, then the axis of rotation is the unique line which intersects and is perpendicular to both the initial and final lines of sight. Listing's law is sometimes mistakenly stated as saying that when the eye moves from any sight direction to any other sight direction, the axis that it is rotated on is the unique one that is perpendicular to both the initial and final lines of sight. This formulation cannot be the case because it would imply that the eye can travel a path and end looking the same direction as when it started, except being rotated. We will describe this example in more detail after we've built up the mathematical framework to describe rotations. \\
+
+\temph{Rotations}
+
+Rotations can be described a few different ways in mathematics. Two stand out as being valuable to our present study: a description of the amount of rotation around a named axis and with a matrix. (Another popular and useful way to describe rotations is with \bref{quaternions}{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}, but we will not discuss those here.) \\
+
+The former description of angles rotated around a given line is a fairly straightforward description and has the advantage that it is easy to visualize, but it's drawback is that it is not easy to compose rotations - imagine you have an apple, and you rotate that apple $60^\circ$ about a vertical axis going through its center of gravity and then you rotate $60^\circ$ around a horizontal axis through the center of gravity. The composition of those two rotations is again a rotation, so what is its axis of rotation and by how many degrees is the apple rotated? The answer is not easy to come up with, but it is possible to learn the answer through inspection. \\
+
+Using matrices to describe rotations is less intuitive than describing rotations by their axis, but it makes the job of determining what happens when several rotations are applied to an object almost trivial to compute. To use this method, we will first describe what matrices are and what it means to multiply them together. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+Listing's Law was developed by the German mathematician Johann Benedict Listing who lived from 1808 to 1882. Listing worked in a field of mathematics known as topology and even coined the moniker topology to describe the field, which examines the shape and orientation of objects. More specifically, topologists are interested in how to describe objects, when you are allowed to continuously deform them. A classic joke about this is that a topologist cannot distinguish his morning donut from his morning cup of coffee. They both have one ``hole", and one can be continuously deformed into another.
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=3in]{ccd.jpg} 
+\end{figure}
+A coffee cup or a donut? Johann Listing can't tell the difference!
+\end{minipage}} \vspace{0.2cm}
+
+\temph{Matrices}
+
+What is the matrix? \\
+
+A matrix is a list of numbers organized into a rectangular grid, which is enclosed on the left and right hand sides with square brackets such as $[$ on the left and $]$ on the right. Matrices are primarily classified by the number of rows and columns in this rectangular grid, and these numbers are oftentimes called the dimensions of the matrix. Matrix dimensions are always with the number of rows followed by the number of columns with either the word ``by" or an ``$x$" separating the two dimensions of the matrix.
+\[
+\begin{split}
+\text{A }2 \times 5 \text{ matrix:}& \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 0 & \pi & 0.2 & 7 & -1 \end{pmatrix} \\
+\text{A }3 \times 1\text{ matrix:}& \begin{pmatrix} 2.71 \\ -5.6 \\ 32.1 \end{pmatrix}
+\end{split}
+\]
+
+Writing data in matrix form is a tool used to aid computation. Writing data in the form of matrices never reduces the amount of computation necessary, instead it gives an organization to the data that helps humans keep track of what is going on semantically. Ideally, the organization that a matrix imposes on the data mirrors mirrors the kind of relationships that exist in whatever is being represented. It is up to the writer to ensure that the organization makes sense. \\
+
+\temph{Vectors}
+
+Any matrix with only one column is also called a vector. Vectors are important because they can be used to describe points in a space with the same number of dimensions as the number of rows in the vector. Each entry in the vector describes the value of one coordinate of the point. For example, the $3\times 1$ matrix above describes a point in three-dimensional space whose $x$-coordinate is $2.71$, whose $y$-coordinate is $-5.6$, and whose $z$-coordinate is $32.1$. The concept of course generalizes to give vectors that describe points in any number of dimensions. The concept of a vector is simply a way to compactly collect all of the information that describes a point in space that is convenient to do computations with, as we will see when we multiply vectors by other transformational matrices. \\
+
+\temph{Matrix Entries}
+
+The way to notate a particular element in a matrix is writing the row and then the column in a subscript, separated by a comma. For example, in the $2\times 5$ matrix:
+\[
+A=\begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 0 & \pi & 0.2 & 7 & -1 \end{pmatrix} 
+\]
+The top-right entry, which is a , would be written:
+\[
+A_{1,5}=5
+\]
+Also,
+\[
+A_{2,3}=0.2
+\]
+When counting rows and matrices, start counting at 1 instead of with 0, as is the case with most computer science. \\
+
+\temph{Matrix Addition}
+
+Only two matrices with identical dimensions may be added. That is, the two matrices must both have the same number of rows and both have the same number of columns. Matrix addition is done element-wise. That is to say that if $A$, $B$, and $C$ are matrices with $C=A+B$ then $A$, $B$, and $C$ must have identical dimensions and $C_{i,j}=A_{i,j}+B_{i,j}$ for all valid subscripts $i$ and $j$. \\
+
+For example:
+\[
+\begin{pmatrix} 1 & 4 & 9 \\ 16 & 25 & 36 \end{pmatrix} + \begin{pmatrix} 0 & -1 & 1 \\ -9 & 10.1 & 2 \end{pmatrix} = \begin{pmatrix} 1 & 3 & 10 \\ 7 & 35.1 & 38 \end{pmatrix}
+\]
+\textbf{Addition Properties} \\
+
+Matrix addition is associative and commutative. That is to say that for matrices $A$, $B$, and $C$ with identical dimensions:
+\begin{itemize}
+\item $A+B=B+A$
+\item $A+(B+C)=(A+B)+C$
+\end{itemize}
+
+\temph{Matrix Multiplication} 
+
+\textbf{The order of the multiplicands matters in matrix multiplication.} \\
+
+\textbf{Dimensionality} \\
+
+Not all combinations of matrices can be multiplied together. Whether or not two given matrices can be multiplied together depends on their dimensions. Specifically, two matrices can be multiplied when the number of columns of the matrix on the left is the same as the number of rows of the matrix on the right. A $3\times 2$ matrix can be multiplied by a $2\times 5$ matrix. However, a $4\times 5$ matrix cannot be multiplied by another $4\times 5$ matrix. This reflects the fact that, semantically, the columns of the left matrix correspond to the rows of the right matrix. The product matrix has the same number of rows as the left multiplicand matrix and the same number of columns as the right multiplicand matrix. \\
+
+There is a mnemonic trick to remembering these rules concerning dimensions of matrix multiplication. Let us go back to our previous example of a 3x2 matrix being multiplied by a $2\times 5$ matrix. Call the $3\times 2$ matrix $A$ and call the $2\times 5$ matrix $B$. The product of these matrices is written as $AB$ or $A \cdot B$. To check if it is valid to multiply these matrices, replace the matrices by their dimensions: $3 \times 2 \cdot 2 \times 5$. The central two numbers here will be equal if and only if it is valid to multiply these two matrices in this particular order. If they are equal, then ``cancel" them to get $3 \times 5$, which are the dimensions of the matrix that is the product of the $3 \times 2$ matrix by the $2 \times 5$ matrix. Remember that this is just a mnemonic trick, and that the ``canceling" does not imply anything deeper going on. \\
+
+\textbf{The Product} \\
+
+Once the dimensions of the product of two matrices are determined, the easiest way to describe the contents of the product of two matrices is to describe how to compute a generic element in the matrix. \\
+
+Suppose that $A$ is an $n$-by-$m$ matrix and $B$ is an $m$-by-$p$ matrix. We will show how to compute $C=A \cdot B$, which is an $n$-by-$p$ matrix. A generic element of $C$ is given by:
+\[
+C_{i,j}=\sum_{j=1}^m A_{i,j} \cdot B_{j,k}
+\]
+One way to visualize this definition is to select a row of the left-hand matrix $A$ and a column of the right-hand matrix $B$. Start a the left of the row of $A$ and at the top of the column of $B$. Multiply the two terms found in these two locations. Move one entry to the right and one entry down respectively, multiply those entries together, and repeat until you reach the end of the row and column. The fact that the number of columns of $A$ is equal to the number of rows in $B$ guarantees that the end of the row of will be reached exactly when the end of the column of $B$ is reached.	It should be clear from this definition why the number of columns of $A$ must match the number of rows of $B$ in order to be able to multiply the matrices. \\
+
+\textbf{Properties} \\
+
+Matrix multiplication is associative and distributive, but not commutative. That is to say that for matrices $A$, $B$, and $C$:
+\begin{itemize}
+\item $A \cdot (B \cdot C)=(A \cdot B)\cdot C$
+\item $A \cdot (B+C)=A \cdot B + A \cdot C$
+\item $A \cdot B \neq B \cdot A$
+\end{itemize}
+
+The last equation, $A \cdot B \neq B \cdot A$, is not strictly true. There are pairs of matrices $A$ and $B$ such that $A \cdot B=B \cdot A$; however, these pairs are rare and the exception rather than the rule. \\
+
+\temph{Identity Matrix}
+
+An identity matrix is a square matrix with all zero elements except along the upper-left to lower-right diagonal, all of whose elements are one. There are infinitely many identity matrices, one for each possible dimension. They are all denoted as $I$, and the implied context of the dimension differentiates them. The first couple identity matrices are:
+\[
+\begin{split}
+I&=\begin{pmatrix} 1 \end{pmatrix} \\
+I&=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \\
+I&=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+\end{split}
+\]
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 1}  \\ \end{center}
+\begin{enumerate}[1.]
+\item Find the product $\begin{pmatrix} 0 & 1 & 2 \\ 1 & 0 & -1 \end{pmatrix} \cdot \begin{pmatrix} 0 & 3 \\ -1 & 0 \\ 1 & 1 \end{pmatrix}$
+\item Find the values of $x$ and $y$ in the equation:
+\[
+\begin{pmatrix} x & 5 \\ 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} -1 & 1 \\ 2 &  y \end{pmatrix} = \begin{pmatrix} 7 & 3 \\ 2 & 0 \end{pmatrix}
+\]
+\end{enumerate}
+\end{minipage}} \vspace{0.2cm}
+
+\temph{Determinant}
+
+The determinant of a square matrix $M$ (written $\det M$) is defined as the volume scale factor for the linear transformation associated with $M$. To explicate this a little more, suppose that $M$ is a $3 \times 3$ matrix, and suppose $T$ be the linear transformation from $\R^3$ to itself associated with $M$, and let $R$ be any region in $\R^3$ with a volume of 1. Then $T(R)$ is another region in $\R^3$ (the region achieved by applying $T$ to every point in $R$), and $\det M$ is defined as being the volume of this region. \\
+
+For any particular dimension, there is an algebraic formula for the determinant of square matrices in that dimension in terms of the entries in the matrix. For example:
+\[
+\begin{split}
+\det \begin{pmatrix} a \end{pmatrix}&=a \\
+\det \begin{pmatrix} a & b \\ c & d  \end{pmatrix}&= ad-bc \\
+\det \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}&= aei+bfg+cdh-afh-bdi-ceg
+\end{split}
+\]
+
+The complexity of the algebraic expressions for the determinant increases exponentially. However there is a recursive definition called \bref{Laplace's Formula}{https://en.wikipedia.org/wiki/Laplace_expansion} which is useful for finding determinants of relatively small matrices. For larger matrices, more advanced techniques such as \bref{Gaussian Elimination}{https://en.wikipedia.org/wiki/Gaussian_elimination} are more efficient. For our purposes, we will only need to find determinants of $3\times 3$ matrices. \\
+
+Determinants of matrices are multiplicative. That is, if $A$ and $B$ are square matrices with the same dimensions, then
+\[
+\det(A \cdot B)=(\det A) \cdot (\det B)
+\]
+
+\temph{Transpose}
+
+The transpose of a matrix is a ``flipping" of a matrix along the upper-left to lower-right diagonal. The transpose of a matrix $M$ is denoted with a small capital ``$T$" written as a superscript to the matrix, such as $M^T$. To write the definition rigorously, we will show how to compute a generic element in the transpose of a matrix: \\
+\[
+\left((M^T\right)_{i,j}=M_{j,i}
+\]
+For example:
+\[
+\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 3 \\ 2 & 4 \end{pmatrix}
+\]
+The dimensions of a transpose of a matrix will always be the dimensions of the matrix, but in reverse order. \\
+
+\temph{Linear Transformations}
+
+A linear transformation is a function $T$ from a vector space to another (possibly the same) \bref{vector space}{https://en.wikipedia.org/wiki/Vector_space} that obeys the following two properties:
+\begin{itemize}
+\item $T(p+q)=T(p)+T(q)$
+\item $T(\alpha p)=\alpha T(p)$
+\end{itemize}
+for all points $p$ and $q$ in the domain vector space and scalar values $\alpha$. The adjective ``linear" is often used in mathematics to indicate that addition and scalar multiplication ``play nice" with the given object. Here, a transformation between two spaces is called linear when in commutes with both addition and scalar multiplication. \\
+
+\temph{Matrices as Linear Transformations}
+
+Every matrix corresponds to a linear transformation between finite-dimensional vector spaces with an identified \bref{basis}{https://en.wikipedia.org/wiki/Basis_(linear_algebra)}, and every linear transformation between finite-dimensional vector spaces with an identified basis corresponds to a matrix. The dimension of the domain of the linear transformation must be the number of columns in the matrix and the dimension of the range of the linear transformation must be the number of rows in the matrix. The transformation that a given matrix corresponds to is the action of left-multiplication on vectors of that space. \\
+
+For example, let  be the $3\times 2$ matrix:
+\[
+M= \begin{pmatrix} 0 & 3 \\ -1 & 0 \\ 2 & 3 \end{pmatrix}
+\]
+$M$ corresponds to a linear transformation $T$ from $\R^2$, a two-dimensional space, to $\R^3$, a three-dimensional space.
+\[
+T\left( \begin{pmatrix} 2 \\ 5 \end{pmatrix} \right)= \begin{pmatrix} 15 \\ -2 \\ 19 \end{pmatrix} = \begin{pmatrix} 0 & 3 \\ -1 & 0 \\ 2 & 3 \end{pmatrix} \cdot \begin{pmatrix} 2 \\ 5 \end{pmatrix}
+\]
+
+\temph{Rotations}
+
+A rotation in three dimensions is a specific kind of linear transformation. The rotation is an action whose domain and range is both $\R^3$, so three-dimensional rotations are all represented by $3\times 3$ matrices. We will only consider rotations which fix the origin. We will show how to identify a matrix as representing a rotation, rather than some other type of linear transformation. \\
+
+A given matrix $M$ represents a rotation if and only if the following two conditions hold:
+\begin{itemize}
+\item $\det M=1$
+\item $M \cdot M^T=I$
+\end{itemize}
+There are three classes of rotation matrices which stand out because their axis of rotation is one of the coordinate axes.
+
+\begin{itemize}
+\item The matrix representing a rotation of $\theta$ around the $z$-axis looks like:
+\[
+\begin{pmatrix} \cos \theta & - \sin \theta & 0 \\ \sin \theta & \cos \theta & 0 \\ 0 & 0 & 1 \end{pmatrix}
+\]
+\item The matrix representing a rotation of $\theta$ around the $y$-axis looks like:
+\[
+\begin{pmatrix} \cos \theta & 0 & -\sin \theta \\ 0 & 1 & 0 \\ \sin \theta & 0 & \cos \theta \end{pmatrix}
+\]
+\item The matrix representing a rotation of $\theta$ around the $x$-axis looks like:
+\[
+\begin{pmatrix} 1 &  0 & 0 \\ 0 & \cos \theta & -\sin \theta \\ 0 & \sin \theta & \cos \theta \end{pmatrix}
+\]
+\end{itemize}
+
+Every three-dimensional rotation is a composition of these three matrices. Can you figure out how? \\
+
+\temph{Eigenvectors}
+
+Every three-dimensional rotation has a single axis of rotation. (The exception to this rule is the trivial rotation, which does not change any point.) Points along the axis are the only points in space which are not moved by the action of the rotation (which is a multiplication by the matrix $M$). To find these points, first suppose that a generic point $(x,y,z)$ is on the axis of rotation. This means that the following equation holds:
+\[
+M \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+\]
+If $M$ is a non-trivial rotation, then this equation will always be an under-determined linear system of three equations. The solutions to this system will in fact all lie along a line that passes through the origin. If $(x,y,z)$ is a solution and $\alpha$ is a real number, then $(\alpha x, \alpha y, \alpha z)$ will also be a solution, and vice-versa. This line of solutions through the origin is the axis of rotation for our action induced by the matrix. Though the term is far more general than how it is used here, the vector $(x,y,z)$ is called an eigenvector of the matrix $M$, and this is a simple way to find the axis of rotation of any three-dimensional rotation. \\
+
+\temph{Eye Rotations}
+
+Suppose that we have an eye in its resting position looking horizontally, and we orient our coordinate axes so that the $z$-axis points along the direction of sight, the $y$-axis points up, and the $x$-axis goes from left to right. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 2}  \\ \end{center}
+Axis of Rotation for Listing's Law:
+\begin{enumerate}[1.]
+\item What does Listing's Law say about the axis of rotation of the eye in this orientation?
+\item How can you tell if a given matrix corresponds to a valid rotation of the eye under Listing's Law?
+\item Is the product of two matrices which are valid rotations under Listing's Law also a valid rotation of the eye?
+\item What does this tell you about the motion of the eye?
+\end{enumerate}
+\end{minipage}} \vspace{0.2cm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

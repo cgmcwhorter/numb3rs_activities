@@ -1,0 +1,97 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{404: Thirteen}\label{404}
+
+In this episode, a serial killer is choosing his victims from the Los Angeles phone book based on a system of beliefs rooted in numerology. Numerologists believe that numbers have a spiritual or mystical meaning that transcends what mathematicians and scientists understand. Charlie is forced to learn about these beliefs, and determine what mathematical patterns the killer is using in order to predict the next victim. \\
+
+\temph{The Strong Law of Small Numbers}
+
+When Professor Trowbridge is explaining various ways of looking at numbers, she sometimes manipulates numbers and letters in such a way as to discover the same small number many times, in many different ways. She then portrays this as being too strange to be a coincidence, and implies that this is evidence for some higher meaning in the numbers. Charlie replies by citing the ``strong law of small numbers," which says that there are not enough small numbers to meet the many demands made of them. \\
+
+This means that small numbers will often appear in more than one place, and so such things are much more likely to be coincidences than we would initially think. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 1}  \\ \end{center}
+Consider the following numbers:
+\begin{itemize}
+\item The month of your birthday
+\item The day of your birthday
+\item The sum of the last two digits of your birth year
+\item The number of letters in your first name
+\item The number of letters in your last name
+\item The number of distinct letters that appear in your full name
+\item The number of pounds you weighed when you were born
+\item The number of ounces you weighed when you were born
+\end{itemize}
+Were there any duplicates? \\
+
+Let's try to approximate the probability that none of those six numbers were the same. To be on the safe side, let's assume that all eight numbers are independently and randomly chosen in the range 1-30 (actually, they are more restricted than this, so the actual probability will be smaller). What is the probability that there are no duplicates? \\
+
+To find this probability, first consider the similar question where only two numbers are chosen.
+\begin{itemize}
+\item First, one number between 1-30 is chosen.
+\item When a second number is chosen, the probability that we choose a \emph{different} number is simply $\frac{29}{30}$.
+\item Assuming we have no duplicates yet, we have two numbers to ``miss" when we choose the third number. So, the probability of no duplicates after the third number is $\frac{29}{30}\cdot \frac{28}{30}$.
+Continuing, the probability of no duplicates after four choices is $\frac{29}{30}\cdot \frac{28}{30}\cdot\frac{27}{30}$.
+\end{itemize}
+So, the probability that all eight of those numbers are distinct is less than
+\[
+\frac{30\cdot29\cdot28\cdot27\cdot26\cdot25\cdot24\cdot23}{30\cdot30\cdot30\cdot30\cdot30\cdot30\cdot30\cdot30}=\frac{235989936000}{656100000000}=0.359
+\]
+In other words, more than 60\% of all people will find an amazing ``coincidence" among the eight numbers above. This is simply because there are so few small numbers available, and so the probability that all these quantities are distinct is very small.
+\end{minipage}} \vspace{0.2cm}
+
+Charlie says that ``one will always find meaning where one seeks it." For instance, if your birth-weight and the number of letters in your last name are equal, you could claim that the probability of this specific event is very small. However, the probability that something \emph{like this} would happen is actually very high. In searching for the coincidence, you were actually very likely to find one. \\
+
+Although Charlie does not believe that numbers hold a mystical significance, he is still required to find the rules and patterns that the killer uses to find his victims. At one point, Charlie has determined that all the victims' phone numbers add up to 26. If you watch the phone book in this episode, you will also notice that all the phone numbers in Charlie's city start with ``555"! \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 2}  \\ \end{center}
+How many phone numbers are there that add up to 26, of the form ``555-XXXX"? \\
+
+This seems like a very hard problem, but in fact it is just one of a general class of problems, all of which are easy to solve given the right technique. \\
+
+\textbf{A similar problem}: There are 5 slices of pie, and three people. Assuming that slices cannot be cut into smaller pieces, how many ways are there of distributing the pieces? \\
+
+Each way of distributing the pieces can be thought of as a sequence of two types of commands: "add one piece to this person," and ``move on to the next person." Call the first command ``A" and the second command ``M"; then for instance the following sequence represents 2 pieces for the first person, 1 for the second person, and 2 for the third person: \textbf{A A M A M A A} \\
+
+This sequence represents 1 piece for the first person, 3 for the second person, and 1 for the third: 
+\textbf{A M A A A M A} \\
+
+In fact, each way of distributing the slices is encoded by exactly one sequence of seven letters, two of which are M's and five of which are A's. When the question is reduced to this, we can use combinations: we need to know how many possible sequences of A's and M's there are with seven letters but only two M's, so we need to find how many ways there are to place the M's in the sequence. The number of possible ways to choose 2 things out of 7 options is given by the number ``7 choose 2," which is 21. So, there are 21 ways of distributing the pieces of pie. \\
+
+Applying this technique to the phone problem, we can write sequences of the symbols ``A" and ``M", where ``A" stands for ``add one to this digit," and ``M" stands for ``move on to the next digit." We need to find how many ways there are of choosing four digits that add up to 11, so that the number 555-\textbf{XXXX} adds up to 26. \\
+
+Such a sequence needs to have 11 ``A"s and 3 "M"s, and there are ``14 choose 3" $=$ 364 such sequences. This is a slight over-estimation, since these sequences encode some non-existent phone numbers like 555--$\mathbf{0\;1\;0\;10}$.
+\end{minipage}} \vspace{0.2cm}
+
+However, Charlie's chalkboard also states that the digit sums of street numbers of the victims' addresses add up to 12, the street names have letter sums that add to 42, and their names and surnames have numerical values 73. With all these criteria, the police department is still having trouble making a short enough list of possible victims to cross-check with a missing persons' list. \\
+
+Amita uses further methods to create a list of possible suspects that contains only 286 names. This would not be necessary if everyone's phone number really started with 555, since this criterion alone would make a list that was no longer than 364 names! \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+Pause the episode when a page of the phone book is shown with the victims' names: actually none of these criteria are satisfied: their phone numbers do not add to 26, their street numbers do not have digit sum 12, and so on. Oops!
+\end{minipage}} \vspace{0.2cm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

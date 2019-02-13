@@ -1,0 +1,54 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{215: The Running Man}\label{215}
+
+In this episode several different mathematical topics are mentioned, but we're going to focus on LIGO, plasma cutters, and Benford's Law. \\
+
+\temph{Laser Interferometer Gravitational-Wave Observatory}
+
+LIGO is the place where the fictional character Larry works, but it is also a scientific project in real life. It is a joint project by Caltech and MIT which is designed to detect gravitational waves. These can be understood by analogy to waves in a pond. (Look \hyperref[220]{here} for more information about waves.) Imagine a very still pond on a windless day. The top of pond will be completely flat. We can describe this mathematically by assigning each point of the pond a number $H(x,y,t)$ corresponding to its height, and in this case, each point in the pond has the same height. This is described by the equation $H(x,y,t)=c$, where $c$ is a constant. Now if a rock is dropped into the middle of the pond, the function $H(x,y,t)$ will no longer be a constant, but will vary as a function of time and position. The function in general is difficult to describe because it depends on the boundary of the pond as well as how you choose to model dropping the rock, but if you fix the position and just look at the height of one point as a function of time, (i.e. $f(t) = H(x,y,t)$), then you get something like $f(t) = cos(t)$. \\
+
+Now to understand gravitational waves, we have to describe gravity in a way similar to our description of the height of the pond. To do this, we have a function $G(x,y,z,t)$ which to each point in space $x,y,z$ and time $t$ assigns some kind of mathematical object to describe the gravity. Let's think for a bit about what we need to describe gravity. We can feel a force from gravity, and the strength (or magnitude) of that force depends on where we are. However, the direction of that force also varies depending on where we are. A mathematical object which describes a direction and magnitude is called a vector, so our function $G$ must assign a vector to each point in space and time. \\
+
+Now without any waves, the function $G$ won't be a constant for us on the Earth since the Earth exerts a gravitational force that we can feel that varies as a function of where we are. However, at any particular point on the Earth, $G$ will be a constant as a function of time if there aren't any gravitational waves. However, some very large cosmic events like supernova are capable of creating gravitational waves, which change $G$ so that at a fixed point, the vector describing the gravitation oscillates as a function of time (i.e. looks something like cos(t) times a vector), just like the case of waves in a pond. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+Actually, if you're careful you'll realize that at any point on the Earth the gravitational force isn't a constant as a function of time, even without gravitational waves. Do you know why? A partial answer is that the moon exerts a gravitational force on the earth that changes as the earth rotates. This is the main cause of the \bref{tides}{https://en.wikipedia.org/wiki/Tide} in the ocean.
+\end{minipage}} \vspace{0.2cm}
+
+Now the goal of LIGO is to detect such waves. The basic idea of how this is done is as follows. The scientists built two mile-long tubes that are perpendicular to each other. Then a laser beam is split so that it travels down each other tubes at exactly the same time. At the end of each tube are mirrors that reflect the beam back to its starting point. The tubes are built with very precise lengths so that if there are no gravitational waves, then the two beams are exactly out of phase so they cancel out (this means that if you write the equation for the intensity of the two beams at the point where they meet, they look something like $\cos(t)$ and $\cos(t + \pi)$, so when they add together you get 0, which means there's no laser light). However, if there is a gravitational wave that is oriented in the right direction, it will change the length of one of the tubes but not the length of the other, and this will make it so that the two beams aren't out of phase anymore. This means there will be a brief flash of light where the two beams meet. \\
+
+\temph{Plasma Torches}
+
+In grade school you are taught that there are 3 states of matter, solid, liquid, and gas. The distinction between the 3 can be described at the atomic level. A solid is made of molecules that are bouncing around but on average stay in the same positions relative to each other. A liquid is made of molecules that flow past each other but collide frequently because there is not very much empty space between the molecules. Finally, a gas is made of molecules that collide infrequently because there is a lot of empty space between them.
+
+\temph{Benford's Law}
+
+To read about Benford's Law, read more \bref{here}{https://en.wikipedia.org/wiki/Benford\%27s_law} and \bref{here}{http://mathworld.wolfram.com/BenfordsLaw.html}. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{212: The O.G.}\label{212}
+
+Don and his team are called to the scene of the murder of a Los Angeles gang member, but they soon learn that they are investigating the murder of another agent who had been working undercover. \\
+
+Amongst other techniques, Charlie uses \emph{Probability Theory} and \emph{Poisson Distributions} to help better understand the L.A. gang scene. \\
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=1in]{dice.png} 
+\end{figure}
+
+\temph{Probability 101}
+
+Chance is a natural and intuitive concept, and one can easily make and understand sentences like ``the chances of you running a mile in less than 20 seconds are less than those of you rolling a 7 with two ordinary dice". Probability is the branch of mathematics that makes it possible to quantify, compare and study such statements, by assigning to an event such as ``flipping a coin and showing heads" a number between 0 and 1, called its \textbf{probability} (of occurring), where 0 means that it is (almost) impossible for the event to occur and 1 means it is (almost) certain, while 1/2 means that if you try the experiment a million times, about half of the tries will lead to a positive outcome, while the other half will lead to a negative one.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=4in]{probscale.png} 
+\end{figure}
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+The scientific study of probability is a modern development, but gambling shows that there has been an interest in quantifying the ideas of probability for millennia. The exact mathematical descriptions of use in those problems only arose much later though. For more historical background, check \bref{this webpage}{https://en.wikipedia.org/wiki/Probability}.
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=1in]{chp_ace_cards.jpg} 
+\end{figure}
+\end{minipage}} \vspace{0.2cm}
+
+\temph{Probability as Proportion}
+
+In its most basic form, to define the probability of an event, one usually proceeds as follows: \\
+\begin{enumerate}[1.]
+\item First of all, we need a \textbf{random experiment}, also called the \textbf{universe}, such as ``flipping an ordinary coin" or ``rolling two ordinary dice". Mathematically, this is defined by listing all the things that can happen that we are interested in. In doing that, we make sure we only list the basic outcomes that are not a combination of other ones, and we also make sure all the outcomes we have are equally likely to happen. \\
+
+For example, we would list $\{$Heads, Tails$\}$ for the first example, and all the die combinations $\{(1,1), (1, 2),\cdots , (3, 4), (3, 5),\cdots , (6, 6)\}$ for the second one, where $(m,n)$ means the first die rolled an $m$ and the second one rolled an $n$. If the coin is tempered with so that it falls on Heads twice as often as it falls on Tails, then we can't use $\{$Heads, Tails$\}$ anymore. We'll see in the next section of to deal with these by introducing random variables.
+\item Then we need an event whose probability we want to compute, for example ``rolling a 6" in the two dice example. Mathematically, this amounts to looking at the basic outcomes in the universe and listing out all those that realize our event. \\
+
+In the two dice example, ``rolling a 6" is realized by combinations like $(1, 5)$, $(2, 4)$, and (3, 3). Are there any other ones?
+\item Finally, the probability of such an event is then defined as follows: 
+\[
+\text{Probability}(\text{Event }E)= \frac{\text{number of basic outcomes that realize }E}{\text{total number of all basic outcomes in the universe}}
+\]
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

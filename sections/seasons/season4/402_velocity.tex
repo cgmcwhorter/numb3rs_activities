@@ -1,0 +1,64 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{402: Velocity}\label{402}
+
+In this episode, street racers crash into a local coffee shop, killing one person and injuring several others. As Don and the gang investigate, Charlie develops a \emph{mathematical model} of the accident on the computer to recreate the path that the car took just before the accident. One important component of that model is the \emph{friction circle}. \\
+
+\temph{Mathematical Models}
+
+Mathematical models are important tools in physics, engineering, biology, economics, sociology, and many other disciplines. The goal of a model is to use math to explain the behavior of an observed phenomenon such that the model behavior coincides with the observed behavior. We can also use these models in a predictive fashion and form hypotheses about future behavior of the phenomenon. The better our model is, the more accurate our hypotheses will be. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+Contrary to its name, \bref{model theory}{https://en.wikipedia.org/wiki/Model_theory}, is \emph{not} the study of mathematical models. Rather, it is a branch of logic that is similar in nature to abstract algebra.
+\end{minipage}} \vspace{0.2cm}
+
+You may already be familiar with quite a few mathematical models. For instance, the equations one derives in mechanics are models for \bref{Newton's laws of motion}{https://en.wikipedia.org/wiki/Newton\%27s_laws_of_motion}. Graphs of \bref{supply and demand}{https://en.wikipedia.org/wiki/Supply_and_demand} curves in economics are models of the economy. These models rely mostly on Calculus. There are, however, many other models out there that use very different kinds of math to calculus. For example, many social scientists use game theory to build models because it lends itself to well to decision based phenomenon. In fact, in the show, Charlie is writing a book which uses \bref{game theory}{https://en.wikipedia.org/wiki/Game_theory} to describe friendship and personal relationships. Other areas of modeling including using \bref{group theory}{https://en.wikipedia.org/wiki/Group_theory} in chemistry and \bref{algebraic geometry}{https://en.wikipedia.org/wiki/Algebraic_geometry} in biology. \\
+
+\temph{Friction Circle}
+
+Part of the model that Charlie builds to reconstruct the accident involves the concept of the friction circle. This idea has to do specifically with how cars maintain traction with the road while driving, that is, the force of friction between the road and the tires. \\
+
+We begin by recalling that the force of friction, $F$, acting on an object has magnitude $F=\mu |N|$, where $N$ is the normal force (or weight) of the object. The direction of the frictional force depends on the direction of motion. For example, the image on the left shows the frictional force if the car moving laterally to the left and the picture on the right shows the frictional force if the car was heading straight forward:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=3in]{frictioncircle3.png} 
+\end{figure}
+
+Since a car can drive in any direction, we can have a frictional force pointing in any direction. So long as the other forces acting on the car don't exceed the force of friction, we'll maintain traction. Thus, we have a \emph{friction circle} of radius $\mu |N|$, where our car will maintain traction with the road, regardless of the direction of motion. \\
+
+This becomes particularly important if we are racing and want to be able to accelerate or decelerate through a turn. For instance, the diagram below shows the forces if we try to break while heading in to a left hand turn. 
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=3in]{frictioncircle4.png} 
+\end{figure}
+
+As we can see, the resulting frictional force is the \emph{sum} of the breaking and turning frictional forces. This resulting frictional force is the one that must stay inside the friction circle in order for us to keep from sliding.
+
+Much of what has been said here has come from \bref{this}{http://www.auto-ware.com/setup/fc1.htm} website, which is far more in depth and a great resource for those wanting to read more. Specifically, we extend our thanks for the friction circle images included here.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

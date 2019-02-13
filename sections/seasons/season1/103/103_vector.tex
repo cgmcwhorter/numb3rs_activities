@@ -1,0 +1,39 @@
+% !TEX root = ../../../../main/numb3rs_activities.tex
+\newpage
+\phantomsection
+\addcontentsline{toc}{subsection}{103: Vector \label{ep103}}
+\ep{103: Vector}
+
+In this episode, a deadly virus is spreading across Los Angeles. 
+
+% Graph Theory
+\ltLarge{What is Graph Theory?}
+
+
+A graph is defined as two sets $V$ and $E$. $V$ is any non-empty set and is called the vertex set. Elements of $E$ are pairs of elements of $V$, and $E$ is unsurprisingly called the edge set. Graph theory is the study of properties of these graphs with applications ranging from computers to social networking to epidemiology. Suppose you draw a hundred points on a piece of paper. You pick one special point $v$ and play connect the dots, draw edges from one vertex to the next. Then you start back at $v$ and do it again. You repeat the process a dozen or so times. You then ask your friend to figure out which vertex you started from. This is essentially the problem the FBI and CDC are working on, to find the first infected person(s), only there are hundreds of thousands of people all linked together in the contaminated area, so the problem is vastly more complex.
+
+
+The problem (and beauty) of graph theory is that many problems can be simply stated and sometimes even relatively simply solved, but from a practical standpoint are all but impossible. In other words, one can prove the existence of something with relative ease, but giving an example of one could be extremely difficult. One such problem is the Ramsey coloring problem. We call a graph complete if every two vertices are joined by an edge. $K_n$ denotes the complete graph on $n$ vertices. A 2-colored graph is a graph $G$ together with a partition of the vertex set into two subsets. Suppose we agree to call the two colors red and blue. Given a 2-colored complete graph $G$, is there a number $R(r)$ so that if $G$ consists of more than $R$ vertices then $G$ has a complete monochromatic subgraph on $r$ vertices? Here monochromatic means that all the vertices in the subgraph are all in one of the two partitioned subsets. Ramsey proved that yes, there is. Further, he extended the result to the following question: is there a number $R(r,s)$ so that if there are more than $R$ vertices in a 2-colored complete graph $G$ then there is either a complete red subgraph on $r$ vertices or a complete blue subgraph on $s$ vertices. Again the answer is yes. The smallest number $R(r,s)$ is called a Ramsey number. Note that when $r= s$, this new problem corresponds to the original problem. Even for very small numbers, the Ramsey numbers are not known precisely. $R(5,5)$, for example, is not known precisely, although it is known to be between 43 and 49. The prolific twentieth-century mathematician Erd\H{o}s expresses the computational difficulty of the problem with the quip, 
+	\begin{center}
+	\begin{minipage}{0.75\textwidth}
+	``Imagine an alien force, vastly more powerful than us landing on Earth and demanding the value of $R(5,5)$ or they will destroy our planet. In that case, we should marshal all our computers and all our mathematicians and attempt to find the value. But suppose, instead, that they asked for $R(6,6)$, we should attempt to destroy the aliens.''
+	\end{minipage}
+	\end{center}
+
+
+Proofs of very simple theorems are quite complicated. The Four Color Theorem is an example of such a problem. A planar graph is a graph that can be drawn on a plane without having its edges cross. Another way to think of such a graph is by taking the plane, cutting it up into regions, and drawing a graph by putting a vertex inside each region and then drawing edges between vertices whose regions border one another. The Four Color Theorem says that given a planar graph, one can color the vertices with 4 colors so that no adjacent vertices are of the same color. The question comes from the desire to color a map of nations so that no bordering nations are the same color. This is slightly different since nations are not generally contiguous. For example, during the colonial times of the Great Britain, that nation had numerous colonies across the globe. The Four Color Theorem is known for having one of the least elegant proofs of all time. The original proof of the theorem reduced the problem to almost 2000 cases which were then handled using a computer.
+
+
+Try computing $R(3,3)$.
+
+
+A bipartite graph is a graph whose vertex set can be partitioned into two sets so that vertices in each partition are only joined by edges to vertices in the other partition. A graph is connected if there is a path between any two vertices (where path has the intuitive meaning). A minimally connected graph is called a tree.  Prove that every tree is bipartite.  A cycle is exactly what it sounds like. Prove that a cycle with an even number of vertices is bipartite.
+
+
+A complete bipartite graph is a bipartite graph with the property that each vertex in one partition is joined to every vertex in the other partition, i.e. it is a bipartite graph with the most possible edges. $K_{m,n}$ denotes the complete bipartite graph partitioned into sets of m and n vertices. There is an interesting relationship between a graph being planar and the graphs $K_{3,3}$ and $K_5$. Learn more about that.
+
+
+% Yang-Mills
+\ltLarge{Run of the Yang-Mills}
+
+When Charlie visits Larry at the restaurant, Larry makes a very nerdy joke. The punch line is that it's ``just a run of the Yang-Mills black hole.'' Yang-Mills (and the mass-gap problem) is a problem of mathematical physics. Yang-Mills is the underpinning of elementary particle theory that has made many correct and testable predictions, but the mathematics is not at the level of rigor required of mathematicians. One of the major problems is establishing that there is a Yang-Mills theory with the property that quantum particles have positive mass. This mass-gap problem is one of the \$1,000,000 Clay Institute Millennium Problems.

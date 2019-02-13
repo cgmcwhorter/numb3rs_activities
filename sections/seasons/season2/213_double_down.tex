@@ -1,0 +1,112 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{213: Double Down}\label{213}
+
+The main mathematical topic in this episode are using math to determine strategies for winning against casinos at blackjack. Along the way, a discussion of generating pseudorandom numbers comes up. \\
+
+\temph{Counting Cards in Blackjack}
+
+Blackjack (also called 21) is a card game which is frequently played in casinos and is the central theme of this episode. Since the rules in casinos might be slightly different than the rules you may have played by in the past, we'll go through the (slightly simplified) rules first. The goal of the game is to get cards that add up to 21 or as close as possible without \emph{busting}, which means going over 21. Cards with numbers are counted for their number values, face cards (Jack, Queen, King) are 10 points, and an Ace is either 1 or 11. Each player is only playing against the dealer (who represents the casino) and not against the other players. To begin the game, each player puts in a bet and then the dealer gives each of the players two cards, face up, and gives herself 1 card face up and another card face down, as in this example (the dealer is at the top). 
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=3in]{blackjack.png} 
+\end{figure}
+
+Then the player on the dealers left acts. If he is happy with his cards, he \emph{stays}, or if he would like another card, he \emph{hits}. This continues until he stays or until he busts. Then the rest of the players do the same thing in turn. Once all the players have had their turn, then the dealer has her turn. However, the dealer never has the choice of whether to hit or stay, she must follow predetermined rules. If her hand sums to 16 or less, she must hit, and if it sums to 17 or more, she must stay. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 1}  \\ \end{center}
+\begin{enumerate}[1.]
+\item Let's say you're the dealer and you have a 10 and a 6. You must draw a card (but you won't have to draw another one). What are the odds that you bust? (To make it easier assume that the odds of drawing all the different ranks of cards are the same. That is, you are as likely to draw a 6 as you are to draw a 7 or 10 or Ace, etc.)
+\item What if the dealer has cards that sum to 15? What is the probability that she busts when she draws?
+\item What if the dealer has cards that sum to 14? What is the probability that she busts? (Hint: this is different than the last two, because if she draws a 2, then her total is 16 and she must draw again.)
+\end{enumerate}
+\end{minipage}} \vspace{0.2cm}
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 2}  \\ \end{center}
+More Odd: Calculate the odds that the dealer busts for each starting hand of 11 or bigger. 
+\end{minipage}} \vspace{0.2cm}
+
+Because of the way the rules are set up, both the players and the casino each have a different advantage over the other. Since the players don't have to follow any rules when they hit or stay, they can choose to hit or stay more optimally, and hence have an advantage. For example, it is usually best not to hit on 16, but the dealer must every time. However, the dealer has an advantage because the players must act first, and if the player busts then the dealer gets the player's money. Very thorough analysis with computers has resulted in a \bref{table}{http://r4nt.com/article/how-to-play-blackjack-and-win/} that describes optimal play (this table is only relevant to the full set of rules, which are also described in the link). If players play according to the table, then more computer analysis has shown that the casino has approximately a 1 percent advantage, that is, on average, if you bet a dollar, they win one penny. However, these tables are only based on the current hand, and when playing at casinos players are able to remember past hands. This knowledge can give them an advantage. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+Since the actual analysis of optimal play is very complex, either a computer or a whole lot of time is needed to figure it out. Casinos before the 1960's didn't realize this, and some of them unintentionally used rule sets there were advantageous for players who were playing optimally. This changed when the groundbreaking book ``Beat the Dealer: A Winning Strategy for the Game of Twenty-One" by Edward Thorp was published in 1966.
+\end{minipage}} \vspace{0.2cm}
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 3}  \\ \end{center}
+Here is an extreme example of how knowledge of previous cards can affect the odds of who wins:
+\begin{enumerate}[1.]
+\item Repeat activity 2 with the assumption that there are no cards of value 10 nor any aces in the deck, but that the probability of drawing any of the other cards is the same.
+\item Repeat activity 2 with the assumption that there are no aces and no cards of value 2-7 in the deck, but that the probability of drawing any of the other cards is the same.
+\end{enumerate}
+\end{minipage}} \vspace{0.2cm}
+
+After completing the activity (or before, with a bit of mathematical intuition) one sees that if there are many high cards in the deck it is more likely that the dealer will bust, and if there are few it is more likely that they will not bust. Since many of the optimal plays in the computer-calculated table are following the strategy ``stay and hope the dealer busts," the player has the advantage when there are many high cards in the deck. A player can use this to his advantage by remembering one number, called the \emph{count}. The count starts at 0, and for every card the player sees that is worth 10 and every ace the count is increased by one, and for every card between 2 and 7 the player sees, the count is decreased by 1. Then if the count is high, there are relatively few high cards in the deck, so the player is at a disadvantage, and if the count is low, the player has the advantage. Therefore, when the count is negative players should bet more, and when the count is positive players should bet less. Using this type of system, computer analysis has shown that at typical speeds of play, players are able to win about 1 bet per hour, on average. However, the uncertainty is very high, so in any particular hour it is not at all unlikely that a player who is playing optimally (including counting) could win 20 bets or lose 20 bets. This makes blackjack a poor source of income, unless team play is used. However, just as the episode indicates, playing with teams can be dangerous. \\
+
+\temph{Random Number Generators}
+
+Random numbers are useful for many different things. In particular, in this episode they were used in machines that shuffled cards to make the shuffles sufficiently random. There are two main ways of producing ``random" numbers. The harder but more effective way is to record some kind of natural process that is assumed to be random, such as the static on empty radio stations, and then normalize the data recorded to fix biases in the recording. An example of this method and more information describing it can be found \bref{here}{https://www.random.org/}. \\
+
+A second way to generate ``random" numbers is to use a computer algorithm to produce numbers that satisfy many of the tests that true random numbers would. Since output from a computer is never random, but is instead completely determined, numbers generated in this way are called \emph{pseudo-random} numbers. One of the simplest ways of doing this is called a \emph{linear congruential generator}. This method produces a series of numbers labelled $f(0)$, $f(1)$, $f(2)$, etc. The first number, $f(0)$, is called the seed because it has to be generated from an outside source and it begins the sequence. Then given a number in the sequence $f(n)$, the next number in the sequence satisfies the equation 
+\[
+f(n=1)=(A \times f(n)+B) \mod M
+\]
+
+Here $A$, $B$, and $M$ are fixed numbers selected beforehand. Also, the symbol ``mod $M$" means ``take the remainder after dividing by $M$". For example, $27 \mod 10 = 7$, $27 \mod 3=0$, and $27 \mod 4=3$. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 4}  \\ \end{center}
+Testing Random Number Generators: Now let's try a couple linear congruential generators and see how well they work. For all of the following assume that the seed is 1.
+\begin{enumerate}[1.]
+\item Let's try $A = 2$, $B = 4$, $M = 10$. Write down the first 8 numbers generated.
+\item Now try $A = 3$, $B = 7$, $M = 10$. Write down the first 8 numbers generated.
+\item Which of these two choices do you think is better? Why?
+\end{enumerate}
+\end{minipage}} \vspace{0.2cm}
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+There is a famous example of a very popular linear congruential generator called \bref{RANDU}{https://en.wikipedia.org/wiki/RANDU} that has been used since the 1960s. The constants A,B,M were chosen very poorly, and as a result the numbers it generated were not very random at all. As a result, many simulations done with this generator are now looked upon with suspicion.
+\end{minipage}} \vspace{0.2cm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

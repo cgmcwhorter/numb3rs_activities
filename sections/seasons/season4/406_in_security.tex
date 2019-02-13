@@ -1,0 +1,115 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{406: In Security}\label{406}
+
+In this episode, Don knows that his actions have led to the death of a protected witness, and assumes that he therefore made the wrong decision about whether or not to interact with her. However, if the risk to the witness was low enough based on the information available to Don, his decision may have been acceptable. To try to find out the truth, Charlie uses a Classification And Regression Tree (CART) Analysis to try to analyze Don's motivations and determine whether he was actually at fault. This method actually has applications in a variety of fields, including in medicine. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+Hindsight: Suppose you play a game with a 99\% chance of winning \$5, and a 1\% chance of losing \$5. After you play, the unthinkable happens and you lose \$5. Did you make a bad decision? \\
+
+The answer is no: if you were presented with the same choice again, you should again play the game, so you should feel no guilt about the decision. Similarly, Charlie was trying to determine whether Don's decision was a good one given the information he had at the time.
+\end{minipage}} \vspace{0.2cm}
+
+Most decisions that we make in day-to-day life are very complex. For example, Sara may be faced with a decision like this one: She needs to decide whether she should:
+\begin{itemize}
+\item Read the news, or
+\item Go play a game, or
+\item Go do some work.
+\end{itemize}
+When Sara is deciding between these options, she probably uses many conflicting pieces of information to make this decision. For example, she might ask herself, is there a good chance that something important happened in the news, that she will want to know about? Are there other people around who would be interested in playing a game? Does she have some important tasks that she is supposed to be completing? It is likely that she will have a hard time being certain that she has made the correct decision. If she wanted to make this decision using a CART analysis, she would take the following steps: \\
+
+\temph{Step 1: Outcome Evaluation}
+
+First, CART analysis assumes that there was a "correct" decision to be made in each situation, but that the decision maker may not know it ahead of time. In our example, we will say there are a few possible outcomes of the decision:
+\begin{enumerate}[1.]
+\item \emph{\textbf{News} was correct}: Sara should have read the news, since something really important happened.
+\item \emph{\textbf{Game} was correct}: Sara should have played a game with her friends, since all her friends were leaving town in a few hours.
+\item \emph{\textbf{Work} was correct}: Sara should have done something productive, because she had very difficult homework to turn in the next day.
+\end{enumerate}
+
+Sara needs to decide how much each of the potential outcomes costs depending on her decision, and assign values to each of them. She might do it like this: \\
+
+\begin{itemize}
+\item If I choose correctly, that does not cost me anything, so 0's go in those boxes.
+\item If I was supposed to read the news, but I did something else, that is not so bad, so I will put 3's in the first row.
+\item Work and Games take a long time, so if I choose one of those when I am supposed to be doing the other, I lose a lot of valuable time. I will put 10's in those boxes.
+\item If I choose news when I am supposed to be doing something else, that doesn't take so long, so I will put 5's in those boxes.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\temph{Step 2: Predictor Variables}
+
+Sara now needs to put together a list of what kinds of information she has to help with her decision. In our example, she will have the following knowledge:
+\begin{itemize}
+\item \textbf{Friends}: Did any of her friends mention that they were leaving town?
+\item \textbf{Assignments}: Does she remember having any important work assigned to her?
+\item \textbf{Gut Feeling}: Does she have a "gut feeling" that she should read the news today?
+\end{itemize}
+Each of these will have either a ``yes" or ``no" answer, and using these, she needs to make her decision. To do so, she has to evaluate which of these predictor variables is most accurate. She decides the following:
+\begin{itemize}
+\item \textbf{Friends}: If all her friends were leaving town, she is 90\% sure they would mention it.
+\item \textbf{Assignments}: If she had an assignment, she is 60\% sure she would remember it.
+\item \textbf{Gut Feeling}: If she has a gut feeling about the news, she is 10\% sure that something happened.
+\end{itemize}
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+Being ``90\% sure" is not a very statistically precise notion. A CART program would use real statistics like correlation coefficients, in place of these everyday terms, but the idea of the CART analysis can be understood without complete mathematical rigor.
+\end{minipage}} \vspace{0.2cm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

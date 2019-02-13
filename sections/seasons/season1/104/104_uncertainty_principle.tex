@@ -1,0 +1,35 @@
+% !TEX root = ../../../../main/numb3rs_activities.tex
+\newpage
+\phantomsection
+\addcontentsline{toc}{subsection}{104: Uncertainty Principle \label{ep104}}
+\ep{104: Uncertainty Principle}
+
+In this episode, a series of bank robberies have occurred, none of them violent. After Charlie helps figure out where the next robbery will occur, however, the robbers open fire and kill an agent. By intervening, the FBI has changed the methods of the robbers and revealed an even more dubious plot.
+
+% Uncert. Princ.
+\ltLarge{What is the Heisenberg Uncertainty Principle?}
+
+
+Charlie tells Don that the Heisenberg Uncertainty Principle says that the act of measurement in a system affects the system. This is, as Charlie admits later on, not actually what the principle says. In fact, Charlie's statement is not especially profound: when trying to measure very precisely the location of a piece of dust floating in the air, we will naturally cause the air to move around and thus cause the dust particle to move. This would not have been news to physicists. What the Heisenberg Uncertainty Principle says is that one cannot with perfect accuracy determine the position and velocity of anything --- especially not an electron. The products of the errors is on the order of Planck's constant which is about $10^{-34}$ Joules-seconds. A Joule-second is a unit which is derived from only macroscopic quantities (like a kilogram and a meter). So, in macroscopic terms, the error is completely negligible. The smaller the things we are measuring, the more important the principle becomes. 
+
+
+The Principle, at its most basic roots, has nothing to do with physics at all. In fact, in its general form, it is a statement about the relationship between a function and its Fourier transform. It turns out that the Fourier transform is fundamental to quantum mechanics, so naturally it has physical implications. The American Mathematical Society has an excellent article on the subject which also explains the Fourier transform as well. 
+
+
+% P v NP
+\ltLarge{What is P vs NP?}
+
+
+The P vs NP problem is a problem from the field of logic (or theoretical computer science).  Suppose we have a problem we want a computer to solve. For example, we want a computer to find a solution to the \bref{Traveling Salesman}{https://en.wikipedia.org/wiki/Travelling_salesman_problem} problem. Suppose a salesman needs to travel to 50 cities across the globe. We know how much the flights cost between each city and the salesman wants to spend as little as possible flying. This clearly has a solution as there are ``only'' $50 \cdot 49 \cdot 48 \cdot \cdots \cdot 3 \cdot 2 \cdot 1$ different paths to choose from. No one wants to do this out by hand, so we want to program the computer to do it. But how long will it take? This question is formulated in the following way: suppose that we have n locations for the problem.  Is there an algorithm which requires $O(f(n))$ steps? Here the big-$O$ notation means that for all sufficiently large values of $n$, the number of steps required by our algorithm will be smaller than our function $f(n)$. In general, we say that a problem is in an $f$-complexity class if there is an algorithm which solves the problem in $O(f(n))$ steps.
+
+
+The P-complexity class consists of all YES/NO problems which are solvable in polynomial time. That is P consists of the set of problems for which there exists an algorithm which can check a possible solution to the problem in $O(f(n))$ for some polynomial $f(n)$. We say that P consists of problems for which there is a polynomial time algorithm for \textbf{checking solutions}. The NP-complexity class is somewhat more complicated. Basically, though, the NP-class consists of problems for which there is a polynomial time algorithm for \textbf{finding} solutions. The P vs NP problem asks if P and NP are actually equal. If the algorithm needed to verify a solution of a problem is in polynomial time, is there an algorithm which solves the problem of \textbf{finding a solution} in polynomial time? It seems like a somewhat silly question at first since solving a problem and verifying a solution are almost the same thing to a computer, but it is the one of the biggest open mathematical problems in the world.  The \bref{Clay Mathematics Institute}{http://www.claymath.org/} has offered \$1,000,000 prize to anyone who can give a positive or negative answer to whether P$=$NP. 
+
+
+The astute viewer noticed that Charlie says Minesweeper is NP-complete. It is unclear what Charlie means by this since it has very little bearing on solving the P vs NP problem. The NP-complete problems represent a narrow subclass of NP problems which might not be P. In essence, NP-complete are the hardest NP problems. Richard Kaye proved Minesweeper is NP-complete in the Mathematics Intelligencer. One can visit his webpage on the \bref{mathematics of Minesweeper}{http://web.mat.bham.ac.uk/R.W.Kaye/minesw/ordmsw.htm} for more information. The Traveling Salesman problem is also NP-complete.
+
+
+% Stat. Dead
+\ltLarge{Statistically dead?}
+
+At one point Charlie says to Don that he is statistically dead. Having already been fired upon, Charlie implies that Don is less likely to survive a second attempt. It is probably true that a person who survives being fired upon once are more likely than the average person to be killed in a gun fight during their lifetime. After all, someone who is in a gunfight once is more likely to be in a subsequent gun fight since this set of people includes police officers, military personnel, mercenaries, gang bangers, and so on. Is the real implication Charlie is making correct? Specifically, is his brother is more likely to die from a gunshot wound having already been in a gunfight?

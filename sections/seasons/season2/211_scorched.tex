@@ -1,0 +1,217 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{211: Scorched}\label{211}
+
+An arsonist sets a fire at a car dealership that kills a sales person. The name of an extremist environmental group is spray-painted on the scene, but the group denies involvement. It becomes Don's task to determine whether the group or someone else is responsible. \\
+
+Charlie and Larry are called in for help and use statistical data analysis techniques to try and figure out if there is a pattern to the fires that would help provide a profile of the arsonist. \\
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=3in]{dataanalysis.png} 
+\end{figure}
+
+\temph{Statistics and Data Analysis}
+
+Statistics is a the branch of mathematics that studies collections of data, providing a way of analyzing it, interpreting it, and presenting it. While Charlie uses its techniques in a crime scene investigation, it is actually used in a wide variety of scientific or science-related fields. \\
+
+One of the most basic uses of statistical methods is to provide people like Charlie with means of summarizing and describing large or complex sets of data; this is called \emph{descriptive statistics}. In more advanced situations, patterns in the data may be even modeled so as to account for randomness in the observations, and then used to draw inferences about the process or population being studied; this is called inferential statistics. \\
+
+We will focus in this lesson on the first kind of uses, and we will explore a few ways of summarizing large collections of data, starting with the most obvious ones. \\
+
+\temph{Statistics 101}
+
+The fundamental ingredient in data analysis is obviously the data itself. In this episode Charlie is trying to investigate various properties of several fire cases in order to establish what he calls a ``fireprint". For each given fire case, he has access to informations about the fire such as the rate of burn, the length of scorch marks and the amount of gasoline remnants, for example. In order to make this data comprehensible, he needs to extract a ``fireprint", i.e. the most important features out of those hundreds of sample.
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 1}  \\ \end{center}
+Suppose we are looking at the following table, where each line is a \emph{sample} representing a fire case.
+\begin{center}
+\begin{tabular}{|c|c|}
+Length of scorch marks, $l$ & Rate of burn, $r$ \\
+1.0 & 4.3 \\
+1.2 & 4.5 \\
+2.2 & 4.9 \\
+1.4 & 5.6 \\
+1.4 & 3.9 \\
+1.1 & 4.1 \\
+1.8 & 3.9 \\
+1.9 & 4.9 \\
+2.1 & 5.0
+\end{tabular}
+\end{center}
+We will investigate some basic operations that can still extract valuable information from a given collection. \\
+
+\textbf{Mean or average} \\
+
+Given a collection of samples $x_1,\cdots, x_n$, one can form the mean of the samples using by taking the average of all the $x_i$'s. That is to say, 
+\[
+\text{mean} = \frac{1}{n} \sum_{i=1}^n x_i
+\]
+\begin{enumerate}[1.]
+\item What is the mean length of scorch marks? The mean rate of burn?
+\item What is the mean value of the quantity (length of scorch marks $+ 3\times$ rate of burn)? Can you find it directly using the previous question?
+\item Plot the points $(l,r)$ in the $x,y$-plane and place the point whose coordinates are the mean $l$ and $r$ values respectively. Do you notice anything? What is the barycenter of the collection of points?
+\end{enumerate}
+
+\textbf{Median} \\
+
+The mean of a collection of samples by itself doesn't always reflect the right notion of ``average" sample value. The mean salary of a baseball player in the majors leagues, for example is \$1.2 million dollars. Only given this fact, it is easy to see how the perception of the overpaid baseball player was created. \\
+
+However, it is often conveniently ignored that the median salary for major leaguers is only \$410,000, where the median is the ``middle" salary for baseball players: 50\% make more than \$410,000, but 50\% make less. \\
+\begin{enumerate}[1.]
+\item What is the median of the following collection: 5, 6, 7, 15, 20?
+\item What should be the median in the following case: 2, 5, 10, 15? Should it be 5, 10 or 7.5? Discuss the different possibilities.
+\end{enumerate}
+
+\textbf{Variance} \\
+
+Another important source of information is provided by the variance of our collection. While the mean and the median provide a sense of what the ``middle" value is, they do not reflect how spread the data is. For example, the following collections have the same mean and median: $\{-1, 0, 1\}$ and $\{-100, 0, 100\}$. The variance is there to fill in this gap. Here is how it is calculated:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=2in]{variance.png} 
+\end{figure}
+
+First, calculate the mean of the samples. Then, for each sample, find the distance between the mean and the sample. Finally, take the average of the square of that distance by summing over all samples, and dividing by the number of samples. 
+\begin{enumerate}[1.]
+\item Write an equation for the variance of a collection, following the given instructions
+\item Calculate the variance in the rate of burn from the table above
+\item Consider now the squared rate of burn. Compute the variance of this new variable, and call it $A$.
+\item Compute the mean rate of burn and call it $B$.
+\item Now evaluate $A-B^2$ and compare your answer with that of question 2.
+\item The above equation is in fact no coincidence and can be shown to be true in general. Consider a collection $X$ of samples $\{x_1,\cdots, x_n\}$, and the collection $X^2$ with samples $\{x_1^2,\cdots,x_n^2\}$. Compare $\text{Mean}(X^2)- \text{Mean}(X)^2$ and $\text{Variance}(X)$.
+\end{enumerate}
+
+\textbf{Covariance}
+
+Suppose now you are given a collection of samples $(x_i, y_i)$ describing the distribution of height and weight in a classroom. One might wonder whether there is any relationship between those two variables, meaning how accurate is it to guess someone's weight knowing their height, for example.
+
+One measure of such a relationship between two variables can be found by computing the covariance and the correlation factor of the two variables. If $\overline{x}$ and $\overline{y}$ are the mean $x$ and $y$ values respectively, then the covariance and the correlation factor are given by:
+\[
+\begin{split}
+\text{cov}(X,Y)= \frac{1}{n} \sum_{i=1}^n (x_i-\overline{x})(y_i - \overline{y}) \\
+\text{cov}(X,Y)= \frac{\text{cov}(X,Y)}{\sqrt{\text{var}(X)\text{var}(Y)}}
+\end{split}
+\]
+\begin{enumerate}[1.]
+\item With have the following pairs of $x,y$-samples $\{(1, 2), (2, 3), (4, 10)\}$. What is the covariance in this case? What about the correlation factor?
+\item Plot those points on the x,y-plane and notice that they almost all lie on a single line. What is the sign of the slope of that line? Compare that to the sign of the correlation factor
+\item Do the same thing with $\{(1, 2), (2, 2), (4, 3)\}$ and $\{(1, 2), (2, -5), (4, -7)\}$. What do you notice?
+\item Can you guess the sign of the correlation factor in the following cases just by looking at the $(x,y)$ plots?
+\end{enumerate}
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=3in]{covplots.png} 
+\end{figure}
+The higher the correlation function, the more linear relationship there is between the two variables. Covariance and correlation have to be taken with a grain of salt as their meaning is much more subtle than first appears. \\
+
+\bref{This}{http://www.statisticalengineering.com/correlation.htm} webpage does a really good job showing that correlation and covariance do not tell the full story, and thus one should be careful drawing conclusions solely based on their values. \\
+
+\bref{Wikipedia}{https://en.wikipedia.org/wiki/Correlation_and_dependence} is always a good source of information, and in this case, provides very interesting plots that could help understand these two notions. \\ 
+
+\end{minipage}} \vspace{0.2cm}
+
+\temph{Linear Regression}
+
+Linear regression is a very widely used technique whose purpose is to find linear trends in large chunks of data. It is used to find the line that best approximates a collection of numerical data points $(x_1, y_1),\cdots, (x_n, y_n)$. Doing that, its reduces the complexity of the data into 2 numerical parameters that specify the approximating line: something like $y=2x+3$. It can also be used to predict an $y$-value given an $x$-value that is not in the samples. This approximating line is also called least squares line. \\
+
+Suppose we have a collection of a thousand pairs of fire properties, such as the average length of scorch marks and the amount of gasoline remnants, and we would like to reduce this collection of data to 2 parameters by finding the best approximating line in the following sense: \\
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=3in]{linreg.png} 
+\end{figure}
+
+Given a line $y=ax+b$, and a sample $(x_i,y_i)$, we can calculate the vertical error between that point and the line. This error is given by
+\[
+\Delta_i= y_i - (ax_i+b)
+\]
+If we sum the squares of these errors over all the samples, we get a function of $a$ and $b$ that encodes how far a given line is from being a good approximation to the sample points. The smaller $E(a,b)$, the better the approximation is.
+\[
+E(a,b)= \sum_{i=1}^n \Delta_i^2
+\]
+In the next activity, we investigate how to find the values of $a$ and $b$ that realize the minimal error. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 2}  \\ \end{center}
+The locate the minimum of $E$, we use the gradient technique. Recall that for a one variable function $f(x)$, the minima and maxima are amongst the $x$'s that satisfy $f'(x)=0$. This technique actually generalizes very well to functions of several variables.
+\begin{enumerate}[1.]
+\item Find $\frac{\partial(\Delta_i)^2}{\partial a}$ and $\frac{\partial(\Delta_i^2)}{\partial b}$, then find $\frac{\partial E}{\partial a}$ and $\frac{\partial E}{\partial b}$.
+\item The minimum of $E$ is obtained when both $\frac{\partial E}{\partial a}$ and $\frac{\partial E}{\partial b}$ are zero. Show that this is equality to 
+\[
+\begin{split}
+\sum x_i (ax_i+b-y_i)&=0 \\
+\sum (ax_i+b-y_i)&=0
+\end{split}
+\]
+\item Finally, solve for $a$ and $b$ and show that the regression line is parametrized by 
+\[
+\begin{split}
+a&= \frac{\left(\sum x_i \right) \left( \sum y_i \right) - n \sum x_i y_i}{\left( \sum x_i \right)^2 - n \sum x_i^2} \\
+b&= \frac{1}{n} \left( \sum y_i - a\sum x_i \right)
+\end{split}
+\]
+\end{enumerate}
+\end{minipage}} \vspace{0.2cm}
+
+In the following application, we explore some examples and applications of this technique. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 3}  \\ \end{center}
+\begin{enumerate}[1.]
+\item What is the least square line for the points $(0,b)$ and $(1,a)$? Are you surprised?
+\item Do it now for $(-1, 2), (0, 1)$, and $(3, -4)$, and predict the value that would correspond to $x=4$.
+\end{enumerate}
+\end{minipage}} \vspace{0.2cm}
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 4}  \\ \end{center}
+Craters of mars: One theory of crater formation suggests that the frequency of large craters should fall off as the square of the diameter (Marcus, Science, June 21, 1968). Pictures from Mariner IV show the frequencies listed in the following table.
+\begin{center}
+\begin{tabular}{|c|c|} \hline
+Diameter, $D$, in km & Frequency, $F$ \\ \hline
+$32-45$ & $51$ \\ \hline
+$45-64$ & $22$ \\ \hline
+$64-90$ & $14$ \\ \hline 
+$90-128$ & $4$ \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[1.]
+\item Plot the data points $(D,F)$. Is using a line reasonable in this case?
+\item What if we look at $1/D^2$ rather than $D$? Use the following table and plot $(1/D^2,F)$ using the left value for $D$ in each interval:
+\begin{center}
+\begin{tabular}{|c|c|} \hline
+$1/D^2$ & Frequency, $F$ \\ \hline
+$0.001$ & $51$ \\ \hline
+$0.0005$ & $22$ \\ \hline
+$0.00024$ & $14$ \\ \hline
+$0.000123$ & $4$ \\ \hline
+\end{tabular}
+\end{center}
+Is a line a reasonable approximation now? Find the least mean squares line and write $F = a (1/D^2)+b$.
+\end{enumerate}
+\end{minipage}} \vspace{0.2cm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

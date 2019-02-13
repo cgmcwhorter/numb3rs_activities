@@ -1,0 +1,109 @@
+% !TEX root = ../../numb3rs.tex
+\newpage
+\subsection{206: Soft Target\label{206}}
+
+At numerous public facilities throughout Los Angeles, the Department of Homeland Security is running training exercises to practice reacting to various terrorist activities. The first such training exercise takes place in the public underground transit system - and mid-training exercise, a real gas attack is unleashed in one of the railway cars. Although in the panic, little was seen of the movements of possible perpetrators, Charlie does manage to extrapolate where the gas bomb must have been released based on smoke diffusion patterns and predictive differential equations. \\
+
+%%%%%%%%%%
+\temph{Ordinary Differential Equations}
+%%%%%%%%%%
+
+The basic math behind differential equations, diffusion equations, and fluid dynamics can be less than basic at best, but here are some activities and explorations to get a hands on feel of how these calculations can be done. \\
+
+A first-order, linear partial differential equation is an equation of the following form:  
+	\[
+	\begin{split}
+	a(t) F(t) + b(t) F'(t) + c(t) &=0 \\
+	a(t) F(t) + b(t) \dfrac{\partial}{\partial t} F(t) + c(t) &=0
+	\end{split}
+	\]
+These are the same equation, although the latter emphasizes that my coefficients might also be functions of $t$, and that $F'(t)$ is the first derivative of $F(t)$ with respect to $t$. \\
+
+These types of equations come up ALL the time in real-life applications. For example, in a basic case, if I know that the speed of my car is a constant 30~mph, and I start at mile 0 and go for t hours, where am I? Clearly, this should be $F(t)=30t$. \\
+
+Similarly, if I am traveling 75mph at $t=0$, but my speed is decreasing by a third every half an hour, I need to solve the equation
+	\[
+	F'(t)= 75 - 75 \left(\frac{2}{3}\right)^{-2t}
+	\]
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+Gas Diffusion? Differential Equations? How is gas diffusion related to differential equations? Well, for starters, any time we know how fast ``something'' changes - grows, moves, disperses - and need to figure out a function describing the configuration/position of our ``something'' at a particular time, we have a differential equation! \\
+
+Scientists have long tied together the heat equation and the diffusion equation, as they are virtually identical models - one has particles of energy dispersing, the other, particles of matter!
+\end{minipage}} \vspace{0.2cm}
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity 1}  \\ \end{center}
+\begin{enumerate}[1.]
+\item Given $G'(t)=20+36t+16t^4$, solve for $G(t)$ with the following initial conditions:
+	\begin{enumerate}[(i.)]
+	\item $G(0)=0$
+	\item $G(1)=30$
+	\item $G(2)=150$
+	\end{enumerate}
+Remember that for differential equations of the form $G'(t)=c(t)$, for some function $c$ of $t$, we have from the Fundamental Theorem of Calculus that $G(t)$ is the integral of $G'(t)$ plus some constant!
+
+\item Solve the equation F'(t) above for F(t), assuming we started at the 10 mile marker.
+\end{enumerate}
+\end{minipage}} \vspace{0.2cm}
+
+These are the most rudimentary of differential equations. A much more interesting example involves a relationship between the rate of chance $F'(t)$ and our desired function $F(t)$. For instance, if we want a neat equation, consider
+	\[
+	F(t)=F'(t)
+	\]
+While most of you know that the function we're looking for here is $F(t)=e^t$, how do we show this? Well, note that following Steps 1--4, we see\dots
+	\[
+	\begin{split}
+	1.&\; \dfrac{F(t)}{F'(t)}=1 \\
+	2.&\; \int \dfrac{F(t)}{F'(t)} \, dt= \int 1 \, dt \\
+	3.&\; \ln F(t)=t \\
+	4.&\; F(t)=e^t
+	\end{split}
+	\]
+This proves a fact many of you knew -- that our exponential function is its own derivative!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

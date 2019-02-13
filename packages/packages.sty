@@ -1,0 +1,116 @@
+% -------------------
+% Basic Packages
+% -------------------
+\usepackage{
+	amsmath,
+	amsthm,
+	amssymb,
+	enumerate,
+	float,
+	geometry
+}
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{CornellRed}{RGB}{179,27,27}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+%\renewcommand{\baselinestretch}{2.0}
+
+
+%\usepackage{pdfpages} %Infludepdf to make all, pages=-, for one pages={1} or pages={4-9} or combination, insert empty pages with {}, pages= last-1 in reverse order, default pages=1
+% pagecommand={\thispagestyle{empty}}P
+
+% -------------------
+% Fonts
+% -------------------
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+
+
+% -------------------
+% Fancy Header
+% -------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Normal Page Style - Require Two-Sided
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[RE]{\thepage}
+\fancyhead[LO]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Blank Style
+\fancypagestyle{blank}{
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\footrulewidth}{0pt}
+}
+% Bottom Page Style
+\fancypagestyle{pages}{
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage \,of \pageref*{LastPage}}
+\renewcommand{\footrulewidth}{0.4pt}
+}
+
+
+% -------------------
+% Page Backgrounds
+% -------------------
+\usepackage[pages=some]{background}
+\usepackage[percent]{overpic}
+
+
+% -------------------
+% Tikz
+% -------------------
+\usepackage{tikz,tikz-cd}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{%
+    symbol/.style={%
+        ,draw=none
+        ,every to/.append style={%
+            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+    }
+}
+
+
+% -------------------
+% Hyperref
+% -------------------
+\usepackage{hyperref}
+%\usepackage[all]{xy}
+\hypersetup{
+	colorlinks = true,
+	citecolor = blue,
+  	linkcolor  = blue,
+  	urlcolor   = blue
+}
+%\PassOptionsToPackage{hyphens}{url}
+
+
+% -------------------
+% BibTeX
+% -------------------
+\usepackage[
+	hyperref = true,      	% links to online documents
+  	backend  = bibtex,    % use bibtex instead of biber
+  	sorting  = nyt,       	% sorts by (name, year, title)
+  	style  = alphabetic 	% citations look like [Har77]
+]{biblatex}
+\addbibresource{../packages/numb3rs_bib}
+

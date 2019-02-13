@@ -1,0 +1,74 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{403: Hollywood Homicide}\label{403}
+
+Don and the gang are at it again; this time investigating the murder of a young girl in a famous Hollywood star's bathtub. As usual, Charlie does his part to help unlock the keys to the mystery. First, he uses \emph{Snell's Law} (among other things) to identify the victim from a photo. Second, he uses \emph{Archimedes' Principle} to determine the size of the killer. Finally, he uses some \emph{game theory} to figure out the motive for the killing. \\
+
+\temph{Snell's Law}
+
+Snell's Law has to do with how light refracts (or bends) when it meets makes the change from passing through air to passing through water (or any other medium).
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Activity}  \\ \end{center}
+In this activity, we're going to see just how much water can bend light. To start, fill a glass with water and drop a penny in the bottom. Now, only looking straight down from above the glass, try to touch the penny with the point of a pencil. Not too hard, right? Now, tilt your head so that you are only looking at the penny from the side of the glass. Again, try to touch the penny with the tip of the pencil. Not as easy as before, eh? Just to prove that this activity isn't completely contrived, imagine now that you are a bear, the glass of water is large lake or river, the penny is a fish, and the pencil is your paw. Understanding how to hit the penny (or fish) is a bit more important when it leads to one of your few sources of protein.
+\end{minipage}} \vspace{0.2cm}
+
+Let's state Snell's law and see how it applies to our penny/fish situation:
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Snell's Law}  \\ \end{center}
+Let $n_1$ and $n_2$ be the refractive indices of air and water, respectively. Let $\theta_1$ be the angle of incidence and $\theta_2$ be the angle of refraction. Then $n_1\sin\theta_1=n_2\sin\theta_2$.
+\end{minipage}} \vspace{0.2cm}
+
+The following picture should help make Snell's law clear:
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=3in]{snellimage.png} 
+\end{figure}
+
+Let's now apply what we have learned to our penny problem: \\
+
+In the first attempt, we were looking straight down at the penny. Thus, our angle of incidence was zero. That is, $\theta_1=0$. Now, since we assume that $n_1$ and $n_2$ are non-zero, we get that $0= n_1\sin 0=n_2\sin\theta_2$, and so $\theta_2=0$ as well. In other words, the light didn't bend at all, and we were able to touch the penny easily. \\
+
+When we looked through the side of the glass however, we got a positive value for $\theta_1$ and thus, the penny looked like it was somewhere it wasn't. \\
+
+\temph{Game Theory}
+
+After using Snell's law and facial recognition software to identify the victim, Charlie realizes that he can use some \bref{game theory}{https://en.wikipedia.org/wiki/Game_theory} to help determine the motive for the crime. In particular, he uses the concept of risk and response. \\
+
+A quantifiable way to illustrate this is by thinking about the game of basketball. Consider the great center Shaquille O'Neill. He has made an astonishing 58\% of the shots he has taken in his career. However, he has made an abysmal 52\% of the free-throws that he has attempted. By comparison, Michael Jordan made only 50\% of the shots he took in his career but 84\% of his free-throws. \\
+
+Now suppose you have the unenviable task of guarding either of these to legends. Should you rely on your defense, or foul so that he has to shoot free-throws? The answer, of course, lies in the math. \\ 
+
+If you decide to defend Shaq, he is going to make 58\% of his shots. If you decide instead to foul him when he shoots, the chances that he hits both free-throws is (.52)2, or 27\%. So you clearly run a much greater risk trying to play defense. Thus, your expected response would be to foul him. Of course, your strategy changes when when we add in the rule that you are only allowed to foul him six times before being removed from the game, but we won't worry about that for now. \\
+
+What to do against Michael Jordan, however, is a different story. He has a (.84)2 or 71\% chance of making both free-throws if you decide to foul him, as opposed to only a 50\% chance of making the shot in the first place. Thus, you risk much more by fouling him than by defending against him. Let's just hope that your team gets the rebound the times that he misses! \\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+% !TEX root = ../../numb3rs.tex
+\newpage
+\section{Season 2}
+\subsection{201: Judgement Call\label{201}}
+
+In this episode, Charlie discusses Bayes' Theorem and its application to Bayesian filters. Bayesian filters are used for a number of applications, including Spam filtering. This activity discusses conditional probability and Bayes' theorem.
+
+%%%%%%%%%%
+\temph{Conditional Probability} 
+%%%%%%%%%%
+
+In order to understand Bayes' Theorem, we must first understand a little about conditional probability. Given two events, they are either dependent or independent. For example, drawing a card from a deck of 52 and flipping a coin are independent events. Knowing the results of the card draw cannot possibly help you to predict the results of the coin toss, they are essentially unrelated. Drawing two cards without replacement, however, is an example of dependent events. If the first card you draw is red, you know that the probability of drawing a second red card is less than 50\% (in particular, 25/51). \\
+
+\temph{Probability Warm-Up}
+Lets start with a few exercises in probability. Assume you have a standard a 52 card deck.
+	\begin{enumerate}[1.]
+	\item What is the probability of drawing a red queen? Of drawing two red queens without replacement?
+	\item You are going to draw two cards in succession. Your first card is a red queen. What is the probability that your second card will be a red queen?
+	\item This time, your first card is a black queen. What is the probability that your second card will be a red queen?
+	\end{enumerate}
+	
+A \emph{conditional probability}, written $P(A\,|\,B)$, gives the probability that and event $A$ occurs, given $B$. For example, if $B$ is the event ``your first card is a red queen'', and $A$ denoted ``your second card is a red queen'' then $P(A\,|\,B)$ would be the answer to the second question above. If the event $C$ denotes ``your first card is a black queen'' then $P(A\,|\,C)$ would be your final answer. \\
+
+Bayes' theorem gives a convenient formula for conditional probabilities. It states: $P(A\,|\,B) = \frac{P(B\,|\,A)P(A)}{P(B)}$. This formula may not look useful at first, but oftentimes it is far easier to find one conditional probability than another, or one is given to you. Consider the following example: \\
+
+%%%%%%%%%%
+\temph{Using Bayes' Theorem}
+%%%%%%%%%%
+
+You are given two jars containing 5 gumballs each:
+	\begin{itemize}
+	\item Jar 1 contains 4 red gumballs and 1 blue.
+	\item Jar 2 contains 1 red gumball, 3 blue, and 1 green.
+	\end{itemize}
+	
+Consider the following problems:
+	\begin{enumerate}[1.]
+	\item You reach into a jar without seeing its number, and you grab a red gumball. Disappointed (that won't turn my tongue a funny color at all!), you put it back. What is the probability that you drew from Jar 1?
+	\item While you are busily computing probabilities, your friend reaches into Jar 1, takes a gumball, and pops it in his mouth. You then reach into Jar 1 and draw out a red gumball. What is the probability that your friend's gumball is blue?
+	\item Angry, and realizing the error of your ways, you reach into Jar 2 in the hopes of finding a blue gumball. What are the chances that your wish is satisfied?
+	\end{enumerate}
+	
+Finally satisfied with your choice of candy, you decide to turn your attention to heavier matters. A new generation of evil mutants is evolving right here in the United States. Scientists predict that approximately 0.05\% of the population are evil mutants. A doctor has just invented a test for the mutant gene that he claims is ``99\% accurate.'' We will assume that this indicates that for 1\% of people, the test yields the \emph{incorrect} result, whatever that may be. The doctor submits that the FBI should begin using this test to lock away mutants immediately, but Charlie has some reservations\dots
+
+
+%%%%%%%%%%
+\temph{Identifying Evil Mutants}
+%%%%%%%%%%
+
+Let $A$ represent that a person is NOT a mutant, and let $B$ represent that a person tests positive for the mutant gene.
+	\begin{enumerate}[1.]
+	\item Find $P(B)$. Remember to take the tests of both mutants and normals into account.
+	\item Find $P(B\,|\,A)$, taking into account that the test is ``99\% accurate.''
+	\item Find $P(A\,|\,B)$, i.e. the probability that a person who tests positive is not a mutant.
+	\item Do you see a problem (other than constitutional and basic moral issues) with the doctor's plan?
+	\end{enumerate}
+

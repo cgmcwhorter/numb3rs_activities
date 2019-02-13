@@ -1,0 +1,86 @@
+% !TEX root = numb3rs.tex
+\newpage
+\subsection{401: Trust Metric}\label{401}
+
+In this episode, former FBI agent and newly discovered Chinese spy Colby Granger escapes from US custody. Charlie helps track him down by using a \emph{set covering deployment algorithm}. During the pursuit, Colby contacts Don and claims to be a triple agent: he is trying to find a mole in the US government who is actually spying for the Chinese. Charlie develops a trust metric to help the team decide whether or not to believe Colby. \\
+
+\temph{Set Covering Deployment}
+
+Charlie gives an excellent description of the set covering deployment problem in this episode. In order to avoid shipwrecks, we need to illuminate a rocky coastline with light houses. Of course, each light house is expensive to build, so we would like to cover the entire shoreline with the fewest number of light houses. This is what is known as an \bref{optimization}{https://en.wikipedia.org/wiki/Optimization_problem} problem. We want to optimize the shoreline lighting coverage-to-cost ratio. \\
+
+\fbox{\begin{minipage}{43em}
+\begin{center} \large \dotuline{Tangent}  \\ \end{center}
+The set covering problem is known to be an NP-complete problem. This is an important class of problems in computer science that have to do with the P vs. NP millennium problem. See \bref{Clay Math}{http://www.claymath.org/sites/default/files/pvsnp.pdf}.
+\end{minipage}} \vspace{0.2cm}
+
+One way to solve such a problem is by following a \bref{greedy algorithm}{https://en.wikipedia.org/wiki/Greedy_algorithm}. That is, we could put our first light house where it can illuminate the largest section of coastline, our second lighthouse will go where it can illuminate the largest section of coastline that \emph{isn't already illuminated by the first light house}. We continue in this manner, placing each lighthouse so that it illuminates the largest amount of shoreline not illuminated by previous lighthouses, until the whole shoreline is illuminated. The theory behind this is that if we maximize the coverage-to-cost ratio at each step, we will maximize it for the whole process. \\
+
+\temph{Trust Metrics}
+
+After working with Colby for two years, having him confess to being a Chinese spy, and then having him claim to actually be working for the United States, Don and the gang are a having trouble deciding what to believe. Charlie, grappling with his own inability decipher the truth, tries to construct a trust metric- a measure of how much Colby is trusted by the rest of the group. \\
+
+The difficulties in creating such a measure are the same ones facing anybody trying to model any subjective quality: defining the essential characteristics of that quality and finding a way to measure them. \\
+
+Let us apply this to a far less serious problem than determining if we can trust someone. We're going to try to determine who among Magic Johnson, Larry Bird, and Michael Jordan is the best basketball player. We need to think of some essentials for what makes a basketball player great. Of course, there are many measures of performance on the basketball court, so we will pick four important ones:
+\begin{itemize}
+\item Career Scoring Average
+\item Career Assist Average
+\item Career Rebound Average
+\item Championships Won
+\end{itemize}
+and forget all the rest. \\
+
+Now, we are going to consider all four of these statistics evenly. That is, we will consider each one to be just as important as all the others. We also need to set a baseline for each category. We have listed the maximum for each of our four categories attained by any player, ever, which will be our baselines:
+\begin{itemize}
+\item Highest Career Scoring Average: 30.1 points per game, Michael Jordan and Wilt Chamberlain
+\item Highest Career Assist Average: 11.2 assists per game, Magic Johnson
+\item Highest Career Rebound Average: 22.9 rebounds per game, Wilt Chamberlain
+\item Most Championships Won: 11 Championships, Bill Russell.
+\end{itemize}
+Here are the career statistics for our three players:
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+ & Scoring Average & Assist Average & Rebound Average & Championships Won \\
+ Magic Johnson & 1.95 & 11.2 & 7.2 & 5 \\
+ Larry Bird & 24.3 & 6.3 & 10.0 & 3 \\
+ Michael Jordan & 30.1 & 5.3 & 6.2 & 6
+\end{tabular}
+\end{center}
+Now, we're going to divide by the best possible in each category to get a number between 0 and 1 telling us how close each player is to being the best ever in a given category:
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+ & Scoring Average & Assist Average & Rebound Average & Championships Won \\
+ Magic Johnson & 0.65 & 1 & 0.31 & 0.45 \\
+ Larry Bird & 0.81 & 0.56 & 0.44 & 0.27 \\
+ Michael Jordan & 1 & 0.47 & 0.27 & 0.55
+\end{tabular}
+\end{center}
+Taking the average of each row will give us our answer:
+\begin{itemize}
+\item Magic Johnson: .60
+\item Michael Jordan: .57
+\item Larry Bird: .52
+\end{itemize}
+So, by our analysis, Magic Johnson is a better basketball player than either Larry Bird or Michael Jordan. Is that what you thought when we started? \\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

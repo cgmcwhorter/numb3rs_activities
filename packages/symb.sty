@@ -1,0 +1,79 @@
+% Letter Characters
+
+% Math Operators
+
+% Special Commands
+\newcommand{\ov}[1]{\overline{#1}}
+\newcommand{\un}[1]{\underline{#1}}
+
+\newcommand{\bref}[2]{\textcolor{TealBlue}{\href{#2}{#1}}}
+\newcommand{\lbref}[1]{\textcolor{TealBlue}{\href{#1}{#1}}}
+\newcommand{\xqed}{\hfill \lower-0.3ex\hbox{$\triangleleft$}}
+
+\newcommand{\ep}[1]{%
+	{%
+{\color{CornellRed}\noindent\huge\bfseries #1} \par
+\setlength{\parskip}{-0.1em}
+\noindent\rule{\textwidth}{0.5pt} \par
+\vspace{-0.3cm}\noindent\rule{0.30\textwidth}{4pt}
+	}
+}
+
+
+\newcommand{\lt}[1]{\noindent{\bfseries #1}\strut\hfill}
+\newcommand{\ltlarge}[1]{\noindent{\large\bfseries #1}\strut\hfill}
+\newcommand{\ltLarge}[1]{\noindent{\Large\bfseries #1}\strut\hfill}
+
+
+
+\newcommand{\ct}[1]{\strut\hfill{\bfseries #1}\strut\hfill}
+\newcommand{\ctlarge}[1]{\strut\hfill{\large\bfseries #1}\strut\hfill}
+\newcommand{\ctLarge}[1]{\strut\hfill{\Large\bfseries #1}\strut\hfill}
+
+
+\newcommand{\tangent}[1]{%
+\fbox{\begin{minipage}{43em}
+\begin{center} \large Tangent  \\ \end{center}
+#1
+\end{minipage}} \vspace{0.2cm}%
+}
+
+
+
+
+
+% Theorems & Alike
+\numberwithin{equation}{section}
+
+\theoremstyle{theorem}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{conj}{Conjecture}[section]
+
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+\newtheorem{nex}{Non-Example}[section]
+\newtheorem*{dfn}{Definition}
+
+%\theoemstyle{remark}
+\newtheorem*{rem}{Remark} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
