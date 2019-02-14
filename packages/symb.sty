@@ -38,6 +38,13 @@
 \end{minipage}} \vspace{0.2cm}%
 }
 
+\newcounter{activity}
+\newcommand{\activity}[1]{%
+\fbox{\begin{minipage}{43em}  \refstepcounter{activity}
+\begin{center} \large Activity~\theactivity  \\ \end{center}
+#1
+\end{minipage}} \vspace{0.2cm}%
+}
 
 
 

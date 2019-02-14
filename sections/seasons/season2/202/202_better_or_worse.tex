@@ -1,40 +1,43 @@
-% !TEX root = ../../numb3rs.tex
+% !TEX root = ../../../../main/numb3rs_activities.tex
 \newpage
-\subsection{202: Better or Worse\label{202}}
+\phantomsection
+\addcontentsline{toc}{subsection}{202: Better or Worse \label{ep202}}
+\ep{202: Better or Worse}
+\setcounter{activity}{0}
 
 In this episode, Charlie tries to identify a criminal via the car keys in her purse. He explains that the remote used to unlock a car from a distance will be difficult to trace since it uses a \emph{rolling code}. After all, if a remote entry device were to transmit the same signal each time, it would be a relatively simple manner for a thief to intercept and duplicate said signal. Instead, car keys use a mathematical algorithm to send a different $n$ digit number each time the button is pressed, which the locking mechanism can identify as right or wrong.
 
-%%%%%%%%%%
-\temph{Rolling Codes}
-%%%%%%%%%%
 
-The goal of a rolling code is to use a structured formula to change an n-digit number over time. A number of formulas for this change will be \emph{recursive}. A formula is recursive if the output at a given time depends on previous outputs. For example, if we use ai to denote the $i$th output, $a_i+1 := a_i + 1$ is a recursive formula. If $a_0=12$, the resulting sequence of outputs will be 13, 14, 15, 16, etc. \\
+% Rolling Codes
+\ltLarge{Rolling Codes}
 
-Another common recursive formula is used to generate the Fibonacci sequence. The sequence begins with the numbers 0 and 1. Each successive number is the sum of the previous two. The sequence thus continues 0, 1, 1, 2, 3, 5, 8, 13, 21, etc. \\
 
-Recursive formulas make for good rolling codes, as a thief would generally need to figure out the recursive formula, the initial input, \emph{and} the number of iterations that have occurred in order to predict the next output. However, to use practically, a sequence cannot be simply increasing as above- the remote key and car would eventually be overloaded by the length of the digits. Thus, the function must somehow control the length of outputs. \\
+The goal of a rolling code is to use a structured formula to change an n-digit number over time. A number of formulas for this change will be \emph{recursive}. A formula is recursive if the output at a given time depends on previous outputs. For example, if we use $a_i$ to denote the $i$th output, $a_{i+1} := a_i + 1$ is a recursive formula. If $a_0= 12$, the resulting sequence of outputs will be 13, 14, 15, 16, etc..
 
-\fbox{\begin{minipage}{43em}
-\begin{center} \large \dotuline{Tangent}  \\ \end{center}
-The method actually used in remote entry devices is somewhat more complicated than the examples described here. For more information about this method, and the history of attacks on it, see \bref{Keeloq}{https://en.wikipedia.org/wiki/KeeLoq}.
-\end{minipage}} \vspace{0.2cm}
 
-\emph{Modular arithmetic} is frequently used to control the length of numbers in computer science. Some of you may be familiar with the term `modulus' from programming or `clock arithmetic'. In modular arithmetic, integers that differ by a given positive number are considered equal. For example, $0 = 4 = 8 = 12 \mod 4$. Similarly, $1 = 7 = 13 = 19 \mod 6$. You can use modular arithmetic to find shorter expressions of numbers If you are working mod $n$, simply take the remainder of each number under division by n. The resulting numbers will, in particular, all be smaller than $n$. \\
+Another common recursive formula is used to generate the Fibonacci sequence. The sequence begins with the numbers 0 and 1. Each successive number is the sum of the previous two. The sequence thus continues 0, 1, 1, 2, 3, 5, 8, 13, 21, etc..
 
-One problem with rolling codes described by \emph{recursive} functions such as these is a finite period. If a code depends only on the previous output, then as soon as the code repeats a single output, it must cycle. Watch out for this problem while working with your rolling codes. \\
 
-\fbox{\begin{minipage}{43em}
-\begin{center} \large \dotuline{Activity 1: Modular Arithmetic}  \\ \end{center}
+Recursive formulas make for good rolling codes, as a thief would generally need to figure out the recursive formula, the initial input, \emph{and} the number of iterations that have occurred in order to predict the next output. However, to use practically, a sequence cannot be simply increasing as above- the remote key and car would eventually be overloaded by the length of the digits. Thus, the function must somehow control the length of outputs.
+
+
+\tangent{The method actually used in remote entry devices is somewhat more complicated than the examples described here. For more information about this method, and the history of attacks on it, see \bref{Keeloq}{https://en.wikipedia.org/wiki/KeeLoq}.}
+
+
+\emph{Modular arithmetic} is frequently used to control the length of numbers in computer science. Some of you may be familiar with the term `modulus' from programming or `clock arithmetic'. In modular arithmetic, integers that differ by a given positive number are considered equal. For example, $0 = 4 = 8 = 12 \mod 4$. Similarly, $1 = 7 = 13 = 19 \mod 6$. You can use modular arithmetic to find shorter expressions of numbers If you are working mod $n$, simply take the remainder of each number under division by n. The resulting numbers will, in particular, all be smaller than $n$.
+
+
+One problem with rolling codes described by \emph{recursive} functions such as these is a finite period. If a code depends only on the previous output, then as soon as the code repeats a single output, it must cycle. Watch out for this problem while working with your rolling codes.
+
+
+\activity{ % LABEL MODULAR ARITHMETIC
 Our new rolling code will be given by taking a number, squaring it, and modding out by $n$ (modding out means taking the remainder under division). This can be rewritten as $a_i+1:= a_i^22 \mod n$. 
 \begin{itemize}
 \item Does this generally generate a better code for larger $n$ or smaller $n$? Why?
 \item Which inputs make for the shortest periods, and which inputs make for the largest?
 \end{itemize}
-\end{minipage}} \vspace{0.2cm}
-
-\fbox{\begin{minipage}{43em}
-\begin{center} \large \dotuline{A Different Sort of Rolling Code}  \\ \end{center}
-Take a number of length $n$ and square it, adding zeroes at the beginning if necessary to obtain a number of length $2n+1$. Take the middle n digits of this number as the output. 
-\end{minipage}} \vspace{0.2cm}
+}
 
 
+\activity{% LABEL A DIFFERENT SORT OF ROLLING CODE
+Take a number of length $n$ and square it, adding zeroes at the beginning if necessary to obtain a number of length $2n+1$. Take the middle n digits of this number as the output. }
