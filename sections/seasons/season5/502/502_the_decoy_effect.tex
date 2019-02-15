@@ -1,0 +1,146 @@
+% !TEX root = ../../../../main/numb3rs_activities.tex
+\newpage
+\phantomsection
+\addcontentsline{toc}{subsection}{502: The Decoy Effect \label{ep502}}
+\ep{502: The Decoy Effect}
+\setcounter{activity}{0}
+
+In this episode, a group of thugs is kidnapping women off the street, and then forcing them to take money out of their accounts via ATM. The team has the idea of putting Nikki undercover, in hopes of having her picked up by the thugs and thus gaining insider information on how their operation is running and what their overarching goals are. This is tricky of course, since the kidnappings are somewhat random. There is some consistency in the type of woman picked up, as well as environmental factors such as both vehicle and pedestrian traffic, time of day, and lack of lighting on the street. The team wants to maximize the chances that Nikki, the decoy, is chosen by the kidnappers.
+
+
+The \textbf{Decoy Effect}, also known as \textbf{asymmetric dominance}, describes how the choices offered can affect what decisions people make when balancing functionality and cost. Let’s think about a less dire situation: bike shopping! Let’s assume that you have enough money to purchase any of the options, but that you want value for your money. To simplify the situation, we will take all of the attributes of a bike (quality of the parts, extras like bells or reflectors or toe clips, attractive color scheme, to name a few) and assign each bike a ``shiny factor.'' Then for each choice, we only consider the shiny factor and the cost.
+
+
+First let us consider the case where we have only two choices:
+
+
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{rcc}
+        \multicolumn{1}{l}{} & Cost & Shiny Factor \\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 1} & \multicolumn{1}{c|}{50}  & \multicolumn{1}{c|}{100} \\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 2} & \multicolumn{1}{c|}{100} & \multicolumn{1}{c|}{50}  \\ \cline{2-3} 
+        \end{tabular}
+        \end{table}
+
+
+\begin{itemize}
+\item What are the pros and cons of each option?
+\item Which is the clear choice in this case?
+\end{itemize}
+
+
+Now say we have the following characteristics:
+
+
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{rcc}
+        \multicolumn{1}{l}{} & Cost & Shiny Factor \\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 1} & \multicolumn{1}{c|}{100}  & \multicolumn{1}{c|}{100} \\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 2} & \multicolumn{1}{c|}{50} & \multicolumn{1}{c|}{50}  \\ \cline{2-3} 
+        \end{tabular}
+        \end{table}
+       
+       
+\begin{itemize}
+\item What are the pros and cons of each option?
+\item Is there a clear choice in this case?
+\end{itemize}
+
+
+Say we have instead,
+
+
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{rcc}
+        \multicolumn{1}{l}{} & Cost & Shiny Factor \\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 1} & \multicolumn{1}{c|}{100}  & \multicolumn{1}{c|}{125} \\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 2} & \multicolumn{1}{c|}{50} & \multicolumn{1}{c|}{50}  \\ \cline{2-3} 
+        \end{tabular}
+        \end{table}
+       
+
+\begin{itemize}
+\item Which bike has the better overall value per dollar?
+\end{itemize}
+
+
+In this case, you would have to balance how much money you are willing to spend versus how much you get for your money. It is tempting to take each case and calculate the value per dollar, but this reduces the question to simply comparing one number for each option and making the decision clear. In fact, we have to try to balance the two characteristics separately, since we may not want to spend too much money.
+
+
+Now say you visit another store, and this introduces a third option:
+
+
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{lcc}
+        	& Cost	& Shiny Factor	\\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 1} & \multicolumn{1}{c|}{100}  & \multicolumn{1}{c|}{100} \\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 2} & \multicolumn{1}{c|}{50} & \multicolumn{1}{c|}{50}  \\ \cline{2-3} 
+        \multicolumn{1}{l|}{Bike 3} & \multicolumn{1}{c|}{50}  & \multicolumn{1}{c|}{100} \\ \cline{2-3} 
+        \end{tabular}
+        \end{table}
+
+
+\begin{itemize}
+\item Of the three choices, which is your best option? (Here, your choice should be clear!)
+\end{itemize}
+
+
+Now let’s make things more complicated:
+
+
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{lcc}
+        	& Cost	& Shiny Factor	\\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 1} & \multicolumn{1}{c|}{100}  & \multicolumn{1}{c|}{125} \\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 2} & \multicolumn{1}{c|}{50} & \multicolumn{1}{c|}{50}  \\ \cline{2-3} 
+        \multicolumn{1}{l|}{Bike 3} & \multicolumn{1}{c|}{75}  & \multicolumn{1}{c|}{40} \\ \cline{2-3} 
+        \end{tabular}
+        \end{table}
+
+
+\begin{itemize}
+\item First, compare Bikes 2 and 3. Which one costs more? Which has the better shiny factor? Given just the two options, which would you buy?
+\item Now, compare Bikes 1 and 3. Which one costs more? Which has the better shiny factor? Given just the two options, which would you buy?
+\item Finally, put this information all together. Given all three choices, which would you prefer?
+\end{itemize}
+
+
+There is no right or wrong answer to this last question! It is a question of preference, but we can analyze what choice is more probable. We call Bike 3 asymmetrically dominated, since it is less desirable than Bike 2 in both categories, but is worse than Bike 1 in one category and better in the other. However, a higher percentage of bike shoppers will in fact choose the bike that is better than Bike 3 on both counts. Thus, it is in the interest of the shopkeeper to have the third option, since it encourages people to purchase the more expensive of the original two! Note that very few people will actually buy Bike 3.
+
+
+Now let’s say that the mark-up is higher for Bike 1, so the shopkeeper makes more money off of a sale of that than Bike 2.
+
+
+\begin{itemize}
+\item What parameters should he have for Bike 3, to encourage people to buy Bike 1?
+\item How much do you want Bike 3 to cost? More than Bike 2? Less than Bike 1? In between?
+\item What shiny factor does he want Bike 3 to have? More than Bike 2? Less than Bike 1? In between?
+\end{itemize}
+
+
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{lcc}
+        	& Cost	& Shiny Factor	\\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 1} & \multicolumn{1}{c|}{100}  & \multicolumn{1}{c|}{125} \\ \cline{2-3} 
+        \multicolumn{1}{r|}{Bike 2} & \multicolumn{1}{c|}{50} & \multicolumn{1}{c|}{50}  \\ \cline{2-3} 
+        \multicolumn{1}{l|}{Bike 3} & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{} \\ \cline{2-3} 
+        \end{tabular}
+        \end{table}
+
+
+\noindent Answer: If Bike 3 has a smaller shiny factor than both Bikes 1 and 2, but has a cost that is in between, then it will encourage people to buy Bike 1.
+
+
+Another place we can see the Decoy Effect is in elections. For example, in the Democratic presidential primary of 2008, there was a very close race between the two frontrunners, Hillary Clinton and Barack Obama. Many people had a hard time deciding between the two, agreeing with the former on some issues and with the latter on others. This made it difficult for them to make a decision. Generally, we think of the introduction of a third candidate as siphoning votes away from the frontrunners. However, many people considered John Edwards as asymmetrically dominated! This means that few people would actually switch their vote from Clinton or Obama to Edwards, but that having the third, (less desirable) choice, often made it easier for people to decide between the original two choices.
+
+
+\begin{itemize}
+\item Explain, in your own words, how Charlie used this principle in the show.
+\item Can you think of other situations where the Decoy Effect is applicable?
+\end{itemize}
